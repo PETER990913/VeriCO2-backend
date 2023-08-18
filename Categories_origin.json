@@ -1,0 +1,76 @@
+[
+    {
+        "Purchased Goods and Services": {
+            "method1": "Supplier-specific method",
+            "method2": "Hybrid method",
+            "method3": "Hybrid method",
+            "method4": "Average-data method",
+            "method5": "Spend-based method"
+        },
+        "Capital Goods": {
+            "method1": "Supplier-specific method",
+            "method2": "Hybrid method",
+            "method3": "Average-product method",
+            "method4": "Average spend-based method"
+        },
+        "Fuel- and Energy-Related Activities Not Included in Scope 1 or Scope 2": {
+            "method1": "Supplier-specific method",
+            "method2": "Average-data method"
+        },
+        "Upstream Transportation  and Distribution": {
+            "method1": "Fuel-based method",
+            "method2": "Distance-based method",
+            "method3": "Spend-based method"
+        },
+        "Waste Generated in Operations": {
+            "method1": "Supplier-specific method",
+            "method2": "Waste-type-specific method",
+            "method3": "Average-data method"
+        },
+        "Business Travel": {
+            "method1": "Fuel-based method",
+            "method2": "Distance-based method",
+            "method3": "Spend-based method"
+        },
+        "Employee Commuting": {
+            "method1": "Fuel-based method",
+            "method2": "Distance-based method",
+            "method3": "Average-data method"
+        },
+        "Upstream Leased Assets": {
+            "method1": "Asset-specific method",
+            "method2": "Lessor-specific method",
+            "method3": "Average-data method"
+        },
+        "Downstream Transportation  and Distribution": {
+            "method1": "Fuel-based method",
+            "method2": "Distance-based method",
+            "method3": "Spend-based method",
+            "method4": "distribution method"
+        },
+        "Processing of Sold Products": {
+            "method1": "Site-specific method",
+            "method2": "Average-data method"
+        },
+        "Use of Sold Products": {
+            "method1": "Direct use-phase emissions",
+            "method2": "Indirect use-phase emissions"
+        },
+        "End-of-Life Treatment  of Sold Products": {
+            "method1": "Waste-type-specific method"
+        },
+        "Downstream Leased Assets": {
+            "method1": "Asset-specific method",
+            "method2": "Lessor-specific method",
+            "method3": "Average-data method"
+        },
+        "Franchises": {
+            "method1": "Franchise-specific method",
+            "method2": "Average-data method"
+        },
+        "Investments": {
+            "method1": "Investment-specific method",
+            "method2": "Average-data method"
+        }
+    }
+]
