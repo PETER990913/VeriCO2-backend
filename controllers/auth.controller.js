@@ -6,23 +6,38 @@ var bcrypt = require("bcryptjs");
 
 exports.signup = (req, res) => {
   // Save User to Database
-  User.create({
-    user: req.body.name,
+  User.findOne({
     email: req.body.email,
-    phoneNumber: req.body.phoneNumber,
-    consultant: req.body.consultant,
-    // birthday: req.body.birthday,
-    password: bcrypt.hashSync(req.body.password, 8),
-    companyName: req.body.companyName
-    // role: 'user'
+    phoneNumber: req.body.phoneNumber
   })
-    .then(user => {
-      res.status(200).send({ user: user, success: true });
+    .then(async user => {
+      if(user) {
+        return res.send({message: "already existing user"})
+      }      
+      else{
+        User.create({
+          user: req.body.name,
+          email: req.body.email,
+          phoneNumber: req.body.phoneNumber,
+          consultant: req.body.consultant,
+          password: bcrypt.hashSync(req.body.password, 8),
+          companyName: req.body.companyName
+        })
+          .then(user => {
+            res.status(200).send({ success: true });
+          })
+          .catch(err => {
+            // res.status(500).send({ errors: err.message, success: false, message: 'Something went wrong!' });
+            res.status(200).send({ success: false, message: 'Something went wrong!' });
+          });
+      }
     })
+    
     .catch(err => {
       // res.status(500).send({ errors: err.message, success: false, message: 'Something went wrong!' });
       res.status(200).send({ success: false, message: 'Something went wrong!' });
     });
+  
 };
 
 exports.signin = (req, res) => {
@@ -59,7 +74,6 @@ exports.signin = (req, res) => {
       });
 
       res.status(200).send({
-        user: user,
         success: true,
         accessToken: token
       });
