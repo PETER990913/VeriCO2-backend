@@ -1,10 +1,19 @@
 const express = require("express");
 const cors = require("cors");
 const path = require('path');
+const mongoose = require('mongoose');/////////////////////
 const app = express();
 
 app.use(cors());
+const Schema = mongoose.Schema;///////////////////////
+const ObjectId = Schema.ObjectId;
 
+const CategorySchema = new Schema({
+  title: String,
+  details: [String],
+});
+
+const Category = mongoose.model('categories', CategorySchema);/////////////////////////
 // parse requests of content-type - application/json
 app.use(express.json());
 
@@ -30,7 +39,11 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to VeriCO2." });
 });
 
-
+app.get('/api/calculation', function(req, res) {///////////////////////////
+  Category.find().then((categories) => {
+      res.send(categories)
+  })
+})
 
 require("./routes/auth.route")(app);
 

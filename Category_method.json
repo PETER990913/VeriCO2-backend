@@ -1,0 +1,64 @@
+
+[
+    {
+        "title": "Purchased Goods and Services",
+        "details": ["Supplier-specific method", "Hybrid method","Average-data method", "Spend-based method"]
+    },
+    {
+        "title": "Capital Goods",
+        "details": ["Supplier-specific method", "Hybrid method","Average-product method", "Average spend-based method"]
+    },
+    {
+        "title": "Fuel- and Energy-Related Activities Not Included in Scope 1 or Scope 2",
+        "details": ["Supplier-specific method", "Average-data method"]
+    },
+    {
+        "title": "Upstream Transportation  and Distribution",
+        "details": ["Fuel-based method", "Distance-based method","Spend-based method"]
+    },
+    {
+        "title": "Waste Generated in Operations",
+        "details": ["Supplier-specific method", "Waste-type-specific method", "Average-data method"]
+    },
+    {
+        "title": "Business Travel",
+        "details": ["Fuel-based method", "Distance-based method", "Spend-based method"]
+    },
+    {
+        "title": "Employee Commuting",
+        "details": ["Fuel-based method", "Distance-based method","Average-data method"]
+    },
+    {
+        "title": "Upstream Leased Assets",
+        "details": ["Asset-specific method", "Lessor-specific method", "Average-data method"]
+    },
+    {
+        "title": "Downstream Transportation and Distribution",
+        "details": ["Supplier-specific method", "Hybrid method","Average-data method", "Spend-based method"]
+    },
+    {
+        "title": "Processing of Sold Products",
+        "details": ["Site-specific method", "Average-data method"]
+    },
+    {
+        "title": "Use of Sold Products",
+        "details": ["Direct use-phase emissions","Indirect use-phase emissions"]
+    },
+    {
+        "title": "End-of-Life Treatment  of Sold Products",
+        "details": ["Waste-type-specific method"]
+    },
+    {
+        "title": "Downstream Leased Assets",
+        "details": ["Supplier-specific method", "Hybrid method","Average-data method", "Spend-based method"]
+    },
+    {
+        "title": "Franchises",
+        "details": ["Franchise-specific method","Average-data method"]
+    },
+    {
+        "title": "Investments",
+        "details": ["Investment-specific method","Average-data method"]
+    }
+    
+]

@@ -3,7 +3,6 @@ const config = require("../config/auth.config");
 const User = db.user;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
-// const Success = db.success
 
 exports.signup = (req, res) => {
   // Save User to Database
@@ -11,16 +10,18 @@ exports.signup = (req, res) => {
     user: req.body.name,
     email: req.body.email,
     phoneNumber: req.body.phoneNumber,
-    birthday: req.body.birthday,
+    consultant: req.body.consultant,
+    // birthday: req.body.birthday,
     password: bcrypt.hashSync(req.body.password, 8),
     companyName: req.body.companyName
     // role: 'user'
   })
     .then(user => {
-      res.status(200).send({ user: user, Success: true });
+      res.status(200).send({ user: user, success: true });
     })
     .catch(err => {
-      res.status(500).send({ errors: err.message, Success: false, message: 'Something went wrong!' });
+      // res.status(500).send({ errors: err.message, success: false, message: 'Something went wrong!' });
+      res.status(200).send({ success: false, message: 'Something went wrong!' });
     });
 };
 
@@ -30,9 +31,10 @@ exports.signin = (req, res) => {
     email: req.body.email
   })
     .then(async user => {
-      // res.status(200).send({ Success: "True" });
+      // res.status(200).send({ success: "True" });
       if (!user) {
-        return res.status(401).send({ Success: false, message: "Invalid email!" });
+        // return res.status(401).send({ success: false, message: "Invalid email!" });
+        return res.status(200).send({ success: false, message: "Email doesn't exist!" });
       }
 
       var passwordIsValid = bcrypt.compareSync(
@@ -41,9 +43,8 @@ exports.signin = (req, res) => {
       );
 
       if (!passwordIsValid) {
-        return res.status(402).send({
-          Success: false, message: "Invalid password"
-        });
+        // return res.status(402).send({ success: false, message: "Invalid password"});
+        return res.status(200).send({ success: false, message: "Wrong password."});
       }
       
       const queryToken = {};
@@ -59,13 +60,14 @@ exports.signin = (req, res) => {
 
       res.status(200).send({
         user: user,
-        Success: true,
+        success: true,
         accessToken: token
       });
 
     })
     .catch(err => {
-      res.status(500).send({ errors: err.message, success: false, message: 'Something went wrong!' });
+      // res.status(500).send({ errors: err.message, success: false, message: 'Something went wrong!' });
+      res.status(200).send({ success: false, message: 'Something went wrong!' });
     });
 };
 
@@ -75,11 +77,12 @@ exports.checkEmail = (req, res) => {
   }).then(user => {
     res.status(200).send({
       email: user.email,
-      Success: true
+      success: true
     })
   }) 
   .catch(err=>{
-    res.status(500).send({ errors: err.message, Success: false, message: 'Something went wrong!' });
+    // res.status(500).send({ errors: err.message, success: false, message: 'Something went wrong!' });
+    res.status(200).send({ success: false, message: 'Something went wrong!' });
   })
 }
 
@@ -90,13 +93,16 @@ exports.resetPassword = (req, res) => {
       user.password = bcrypt.hashSync(req.body.password, 8),
       user.save().then(()=>{
         res.send({
-          Success: true
+          success: true
         })
       })
       .catch(err=>{
-        res.status(500).send({ errors: err.message, Success: false, message: 'Something went wrong!' });
+        // res.status(500).send({ errors: err.message, success: false, message: 'Something went wrong!' });
+        res.status(200).send({ success: false, message: 'Something went wrong!' });
       })
   }).catch(err=>{
-    res.status(500).send({ errors: err.message, Success: false, message: 'Something went wrong!' });
+    // res.status(500).send({ errors: err.message, success: false, message: 'Something went wrong!' });
+    res.status(200).send({ success: false, message: 'Something went wrong!' });
   })
 }
+
